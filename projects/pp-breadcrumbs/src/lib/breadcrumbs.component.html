@@ -1,0 +1,9 @@
+<ol *ngIf="crumbs.length" class="breadcrumb">
+  <li *ngFor="let crumb of crumbs; let first = first; let last = last" [ngClass]="{ 'active': last }" class="breadcrumb-item">
+    <i *ngIf="!first" class="fas fa-chevron-right mr-1"></i>
+    <a *ngIf="!last; else lastBreadcrumb" [routerLink]="crumb.path" [innerHTML]="crumb.text"></a>
+    <ng-template #lastBreadcrumb>
+      <span [innerHTML]="crumb.text"></span>
+    </ng-template>
+  </li>
+</ol>

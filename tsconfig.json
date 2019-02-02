@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "pp-breadcrumbs": [
+        "dist/pp-breadcrumbs"
+      ],
+      "pp-breadcrumbs/*": [
+        "dist/pp-breadcrumbs/*"
+      ]
+    }
   }
 }

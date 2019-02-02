@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "pp-breadcrumbs": {
+      "root": "projects/pp-breadcrumbs",
+      "sourceRoot": "projects/pp-breadcrumbs/src",
+      "projectType": "library",
+      "prefix": "pp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/pp-breadcrumbs/tsconfig.lib.json",
+            "project": "projects/pp-breadcrumbs/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pp-breadcrumbs/src/test.ts",
+            "tsConfig": "projects/pp-breadcrumbs/tsconfig.spec.json",
+            "karmaConfig": "projects/pp-breadcrumbs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/pp-breadcrumbs/tsconfig.lib.json",
+              "projects/pp-breadcrumbs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "pp-breadcrumbs-app"
