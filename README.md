@@ -1,27 +1,86 @@
-# PpBreadcrumbsApp
+# PP-Breadcrumbs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+PP-Breadcrumbs is an Angular 7 module generating breadcrumbs based on the routing state. This solution is inspired by [ngx-breadcrumbs](https://github.com/peterbsmith2/ngx-breadcrumbs).
 
-## Development server
+### Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install via npm:
+```
+npm install pp-breadcrumbs --save 
+```
+Once you installed, you need to import the module:
+```
+import { PpBreadcrumbsModule } from 'pp-breadcrumbs';
 
-## Code scaffolding
+@NgModule({
+  ...
+  imports: [PpBreadcrumbsModule, ...],
+  ...
+})
+export class AppModule {
+}
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Usage
 
-## Build
+Use the `pp-breadcrumbs` component to render the breadcrumbs:
+```
+@Component({
+  selector: 'app-root',
+  template: `
+    <div class="container">
+      <pp-breadcrumbs></pp-breadcrumbs>
+      <router-outlet></router-outlet>
+    </div>`
+})
+export class AppComponent {}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Rendering with `pp-breadcrumbs` is optional, and uses [Bootstrap 4](https://getbootstrap.com/) classes. If a different markup output is desired, a custom component can be created that subscribes to the `PpBreadcrumbsService.crumbs$` observable.
 
-## Running unit tests
+#### Routing Configuration
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Breadcrumb links are generated based on the route configuration. If a route entry contains a data.breadcrumbs property the breadcrumbs service assumes breadcrumbs should be created whenever this route or one its child routes are active.
+```
+const routes: Routes = [
+  {
+    path: 'items',
+    // Uses static text (Home)
+    data: { breadcrumbs: 'Items' },
+    children: [
+      { path: '', component: ListComponent },
+      {
+        path: ':id',
+        // Interpolates values resolved by the router
+        data: { breadcrumbs: '{{ item.name }}' },
+        resolve: { item: ItemResolver },
+        children: [
+          { path: '', component: ItemComponent },
+          { path: 'subitem', component: SubitemComponent, data: { breadcrumbs: `<i class="fas fa-user"></i> Subitem` } }
+        ]
+      }
+    ]
+  },
+  {
+    path: 'another-items',
+    // Uses last urlfragment (about) as text
+    data: { breadcrumbs: true },
+    children: [
+      { path: '', component: ListComponent },
+      {
+        path: ':id',
+        // Resolves the breadcrumbs for this route by extending the PpBreadcrumbsResolver class.
+        data: { breadcrumbs: AnotherItemResolver },
+        children: [
+          { path: '', component: ItemComponent },
+          { path: 'subitem', component: SubitemComponent, data: { breadcrumbs: 'Subitem' } }
+        ]
+      }
+    ]
+  },
+];
+```
 
-## Running end-to-end tests
+### API reference
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+TODO

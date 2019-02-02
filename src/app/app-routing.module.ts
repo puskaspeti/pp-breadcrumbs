@@ -9,27 +9,31 @@ import {AnotherItemResolver} from './resolvers/another-item.resolver';
 const routes: Routes = [
   {
     path: 'items',
+    // Uses static text (Home)
     data: { breadcrumbs: 'Items' },
     children: [
       { path: '', component: ListComponent },
       {
         path: ':id',
-        resolve: { item: ItemResolver },
+        // Interpolates values resolved by the router
         data: { breadcrumbs: '{{ item.name }}' },
+        resolve: { item: ItemResolver },
         children: [
           { path: '', component: ItemComponent },
-          { path: 'subitem', component: SubitemComponent, data: { breadcrumbs: 'Subitem' } }
+          { path: 'subitem', component: SubitemComponent, data: { breadcrumbs: `<i class="fas fa-user"></i> Subitem` } }
         ]
       }
     ]
   },
   {
     path: 'another-items',
-    data: { breadcrumbs: 'Another items' },
+    // Uses last urlfragment (about) as text
+    data: { breadcrumbs: true },
     children: [
       { path: '', component: ListComponent },
       {
         path: ':id',
+        // Resolves the breadcrumbs for this route by extending the PpBreadcrumbsResolver class.
         data: { breadcrumbs: AnotherItemResolver },
         children: [
           { path: '', component: ItemComponent },

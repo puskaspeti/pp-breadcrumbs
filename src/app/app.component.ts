@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BreadcrumbsService, Breadcrumb} from 'pp-breadcrumbs';
+import {PpBreadcrumbsService, Breadcrumb} from 'pp-breadcrumbs';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import {BreadcrumbsService, Breadcrumb} from 'pp-breadcrumbs';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private breadcrumbsService: BreadcrumbsService) {}
+  constructor(private breadcrumbsService: PpBreadcrumbsService) {}
 
   ngOnInit() {
     this.breadcrumbsService.postProcess = (breadcrumbs: Breadcrumb[]) => {

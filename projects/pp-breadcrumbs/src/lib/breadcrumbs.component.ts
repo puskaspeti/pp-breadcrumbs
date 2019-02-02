@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Breadcrumb } from './breadcrumb';
-import { BreadcrumbsService } from './breadcrumbs.service';
+import { PpBreadcrumbsService } from './breadcrumbs.service';
 
 @Component({
   selector: 'pp-breadcrumbs',
@@ -12,7 +12,7 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy {
   crumbs: Breadcrumb[];
   subscriptions: Subscription[] = [];
 
-  constructor(public service: BreadcrumbsService) {}
+  constructor(public service: PpBreadcrumbsService) {}
 
   public ngOnInit(): void {
     this.subscriptions.push(

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng build pp-breadcrumbs && ng serve",
     "start-lib": "ng build pp-breadcrumbs --watch",
     "build": "ng build pp-breadcrumbs && ng build",
     "test": "ng test",

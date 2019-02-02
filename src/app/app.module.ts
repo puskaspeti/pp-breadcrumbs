@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {BreadcrumbsModule} from 'pp-breadcrumbs';
+import {PpBreadcrumbsModule} from 'pp-breadcrumbs';
 import {AppRoutingModule} from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
@@ -21,8 +21,8 @@ import {AnotherItemResolver} from './resolvers/another-item.resolver';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BreadcrumbsModule
+    PpBreadcrumbsModule,
+    AppRoutingModule
   ],
   providers: [ItemResolver, AnotherItemResolver],
   bootstrap: [AppComponent]

@@ -7,7 +7,7 @@ import { template, templateSettings } from 'lodash';
 templateSettings.interpolate = /{{([\s\S]+?)}}/g;
 
 @Injectable()
-export class BreadcrumbsResolver implements Resolve<Breadcrumb[]> {
+export class PpBreadcrumbsResolver implements Resolve<Breadcrumb[]> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Breadcrumb[]> | Promise<Breadcrumb[]> | Breadcrumb[] {
     const data = route.routeConfig.data;

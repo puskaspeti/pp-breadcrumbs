@@ -9,4 +9,4 @@ import { BreadcrumbsComponent } from './breadcrumbs.component';
   imports: [CommonModule, RouterModule],
   exports: [BreadcrumbsComponent]
 })
-export class BreadcrumbsModule { }
+export class PpBreadcrumbsModule { }

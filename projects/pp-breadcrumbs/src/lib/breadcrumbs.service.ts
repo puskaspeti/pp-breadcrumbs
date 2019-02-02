@@ -2,19 +2,19 @@ import { Injectable, Injector } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router } from '@angular/router';
 import { Observable, BehaviorSubject, of, concat, from } from 'rxjs';
 
-import { BreadcrumbsResolver } from './breadcrumbs.resolver';
+import { PpBreadcrumbsResolver } from './breadcrumbs.resolver';
 import { filter, mergeMap, distinct, toArray, first } from 'rxjs/operators';
 import { Breadcrumb } from './breadcrumb';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BreadcrumbsService {
+export class PpBreadcrumbsService {
 
   postProcess: (crumbs: Breadcrumb[]) => Promise<Breadcrumb[]> | Observable<Breadcrumb[]> | Breadcrumb[];
 
   private breadcrumbs = new BehaviorSubject<Breadcrumb[]>([]);
-  private defaultResolver = new BreadcrumbsResolver();
+  private defaultResolver = new PpBreadcrumbsResolver();
 
   get crumbs$(): Observable<Breadcrumb[]> {
     return this.breadcrumbs;
@@ -42,8 +42,8 @@ export class BreadcrumbsService {
     const data = route.routeConfig && route.routeConfig.data;
 
     if (data && data.breadcrumbs) {
-      const resolver: BreadcrumbsResolver =
-        data.breadcrumbs.prototype instanceof BreadcrumbsResolver ? this.injector.get(data.breadcrumbs) : this.defaultResolver;
+      const resolver: PpBreadcrumbsResolver =
+        data.breadcrumbs.prototype instanceof PpBreadcrumbsResolver ? this.injector.get(data.breadcrumbs) : this.defaultResolver;
 
       const result = resolver.resolve(route, this.router.routerState.snapshot);
       crumbs$ = this.wrapIntoObservable<Breadcrumb[]>(result).pipe(first());
