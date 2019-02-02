@@ -10,6 +10,7 @@
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "cd dist/pp-breadcrumbs && npm pack",
     "package": "npm run build:lib && npm run copy-files && npm run npm_pack",
+    "publish": "npm run build:lib && npm run copy-files && npm publish ./dist/pp-breadcrumbs",
     "start:lib": "ng build pp-breadcrumbs --watch",
     "build": "npm run build:lib && ng build",
     "test": "ng test",
