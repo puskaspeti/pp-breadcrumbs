@@ -4,8 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build pp-breadcrumbs && ng serve",
-    "start-lib": "ng build pp-breadcrumbs --watch",
-    "build": "ng build pp-breadcrumbs && ng build",
+    "build:lib": "ng build pp-breadcrumbs",
+    "copy-license": "copy .\\LICENSE .\\dist\\pp-breadcrumbs",
+    "copy-readme": "copy .\\README.md .\\dist\\pp-breadcrumbs",
+    "copy-files": "npm run copy-license && npm run copy-readme",
+    "npm_pack": "cd dist/pp-breadcrumbs && npm pack",
+    "package": "npm run build:lib && npm run copy-files && npm run npm_pack",
+    "start:lib": "ng build pp-breadcrumbs --watch",
+    "build": "npm run build:lib && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
