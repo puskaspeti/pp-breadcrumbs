@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 
-import { BreadcrumbsComponent } from './breadcrumbs.component';
+import { PpBreadcrumbsComponent } from './breadcrumbs.component';
 
 @NgModule({
-  declarations: [BreadcrumbsComponent],
+  declarations: [PpBreadcrumbsComponent],
   imports: [CommonModule, RouterModule],
-  exports: [BreadcrumbsComponent]
+  exports: [PpBreadcrumbsComponent]
 })
 export class PpBreadcrumbsModule { }

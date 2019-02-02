@@ -8,7 +8,7 @@ import { PpBreadcrumbsService } from './breadcrumbs.service';
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.scss']
 })
-export class BreadcrumbsComponent implements OnInit, OnDestroy {
+export class PpBreadcrumbsComponent implements OnInit, OnDestroy {
   crumbs: Breadcrumb[];
   subscriptions: Subscription[] = [];
 
