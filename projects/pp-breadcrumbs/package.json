@@ -1,6 +1,6 @@
 {
   "name": "pp-breadcrumbs",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "PP-Breadcrumbs is an Angular 7 module generating breadcrumbs based on the routing state.",
   "keywords": ["angular", "angular7", "angular 7", "breadcrumb", "breadcrumbs"],
   "license" : "MIT",
@@ -10,6 +10,7 @@
   },
   "peerDependencies": {
     "@angular/common": "^7.1.0",
-    "@angular/core": "^7.1.0"
+    "@angular/core": "^7.1.0",
+    "lodash": "^4.17.11"
   }
 }

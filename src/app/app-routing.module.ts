@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: 'another-items',
     // Uses last urlfragment (about) as text
-    data: { breadcrumbs: true },
+    data: { breadcrumbs: 'Another items' },
     children: [
       { path: '', component: ListComponent },
       {
