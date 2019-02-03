@@ -47,7 +47,7 @@ Breadcrumb links are generated based on the route configuration. If a route entr
 const routes: Routes = [
   {
     path: 'items',
-    // Uses static text (Home)
+    // Uses static text (Items)
     data: { breadcrumbs: 'Items' },
     children: [
       { path: '', component: ListComponent },
@@ -65,7 +65,7 @@ const routes: Routes = [
   },
   {
     path: 'another-items',
-    // Uses last urlfragment (about) as text
+    // Uses last urlfragment (another-items) as text
     data: { breadcrumbs: true },
     children: [
       { path: '', component: ListComponent },
