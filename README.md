@@ -1,6 +1,6 @@
 # PP-Breadcrumbs
 
-PP-Breadcrumbs is an Angular 7 module generating breadcrumbs based on the routing state.
+PP-Breadcrumbs is an Angular 10 library generating breadcrumbs based on the routing state.
 
 **Demo**: [Stackblitz](https://stackblitz.com/edit/pp-breadcrumbs)
 

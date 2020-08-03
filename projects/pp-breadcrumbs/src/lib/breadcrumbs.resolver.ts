@@ -1,10 +1,8 @@
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, UrlSegment } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { Breadcrumb } from './breadcrumb';
-import { Injectable } from '@angular/core';
-import { template, templateSettings } from 'lodash';
-
-templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, UrlSegment} from '@angular/router';
+import {Observable, of} from 'rxjs';
+import {Breadcrumb} from './breadcrumb';
+import {Injectable} from '@angular/core';
+import {template} from 'lodash';
 
 @Injectable()
 export class PpBreadcrumbsResolver implements Resolve<Breadcrumb[]> {
@@ -22,14 +20,14 @@ export class PpBreadcrumbsResolver implements Resolve<Breadcrumb[]> {
     ]);
   }
 
-  getFullPath(route: ActivatedRouteSnapshot): string {
+  protected getFullPath(route: ActivatedRouteSnapshot): string {
     const relativePath = (segments: UrlSegment[]) => segments.reduce((a, v) => (a += '/' + v.path), '');
     const fullPath = (routes: ActivatedRouteSnapshot[]) => routes.reduce((a, v) => (a += relativePath(v.url)), '');
     return fullPath(route.pathFromRoot);
   }
 
-  private stringFormat(templateString: string, binding: any): string {
-    const compiled = template(templateString);
+  protected stringFormat(templateString: string, binding: any): string {
+    const compiled = template(templateString, { interpolate: /{{(.+?)}}/g });
     return compiled(binding);
   }
 }

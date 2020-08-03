@@ -1,16 +1,17 @@
 {
   "name": "pp-breadcrumbs",
-  "version": "1.0.5",
-  "description": "PP-Breadcrumbs is an Angular 7 module generating breadcrumbs based on the routing state.",
-  "keywords": ["angular", "angular7", "angular 7", "breadcrumb", "breadcrumbs"],
+  "version": "2.0.0",
+  "description": "PP-Breadcrumbs is an Angular 10 library generating breadcrumbs based on the routing state.",
+  "keywords": ["angular", "angular10", "angular 10", "breadcrumb", "breadcrumbs"],
   "license" : "MIT",
   "repository": {
     "type" : "git",
     "url" : "https://github.com/puskaspeti/pp-breadcrumbs"
   },
   "peerDependencies": {
-    "@angular/common": "^7.1.0",
-    "@angular/core": "^7.1.0",
-    "lodash": "^4.17.11"
+    "@angular/common": "~10.0.7",
+    "@angular/core": "~10.0.7",
+    "lodash": "^4.17.11",
+    "rxjs": "~6.6.2"
   }
 }
